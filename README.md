@@ -1,6 +1,12 @@
-# ASAL To-Do List
+# Task Manger
 
 A modern, feature-rich To-Do List application built with React and Tailwind CSS. This application provides a beautiful and intuitive interface for managing your tasks with advanced features like task prioritization, categorization, and filtering.
+
+<h2 align="left">📸 Demo </h2>
+
+https://chimerical-scone-5a5e31.netlify.app/
+
+![image](https://github.com/user-attachments/assets/dfab02a3-b497-4770-8d29-8783be6ed30a)
 
 ## Features
 
@@ -58,7 +64,6 @@ src/
 
 2. Install dependencies:
    ```bash
-   cd ASAL_To_Do_List
    npm install
    ```
 
