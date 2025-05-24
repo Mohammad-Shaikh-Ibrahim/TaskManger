@@ -1,0 +1,339 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-white dark:bg-gray-900;
+    min-height: 100vh;
+  }
+}
+
+@layer utilities {
+  .animate-scale-in {
+    animation: scale-in 0.2s ease-out;
+  }
+
+  .animate-slide-in {
+    animation: slide-in 0.3s ease-out;
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.3s ease-out;
+  }
+
+  .animate-bounce-in {
+    animation: bounce-in 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+}
+
+@keyframes scale-in {
+  from {
+    transform: translate(-50%, -50%) scale(0);
+  }
+  to {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes bounce-in {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Task card hover effects */
+.task-card {
+  @apply bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.task-card:hover {
+  transform: translateY(-2px);
+  @apply shadow-md;
+}
+
+.task-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(to bottom, #3b82f6, #60a5fa);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.task-card:hover::before {
+  opacity: 1;
+}
+
+/* Priority indicators */
+.priority-high {
+  @apply bg-gradient-to-r from-red-500 to-red-600;
+}
+
+.priority-medium {
+  @apply bg-gradient-to-r from-yellow-500 to-yellow-600;
+}
+
+.priority-low {
+  @apply bg-gradient-to-r from-green-500 to-green-600;
+}
+
+/* Progress bar animation */
+.progress-bar {
+  transition: width 0.5s ease-in-out;
+}
+
+/* Empty state animation */
+.empty-state {
+  @apply opacity-50 hover:opacity-80;
+  transition: opacity 0.3s ease;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+:root {
+  --primary-bg: #ffffff;
+  --secondary-bg: #f3f4f6;
+  --text-primary: #1f2937;
+  --text-secondary: #4b5563;
+  --border-color: #e5e7eb;
+  --card-bg: #ffffff;
+  --card-border: #e5e7eb;
+  --input-bg: #ffffff;
+  --input-border: #d1d5db;
+  --hover-bg: #f9fafb;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+.dark {
+  --primary-bg: #111827;
+  --secondary-bg: #1f2937;
+  --text-primary: #f3f4f6;
+  --text-secondary: #d1d5db;
+  --border-color: #374151;
+  --card-bg: #ffffff;
+  --card-border: #e5e7eb;
+  --shadow-color: rgba(0, 0, 0, 0.3);
+}
+
+body {
+  @apply bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100;
+  min-height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark {
+  background-color: var(--primary-bg);
+  color: var(--text-primary);
+}
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+
+.logo:hover {
+  filter: drop-shadow(0 0 2em var(--primary-color));
+}
+
+.card {
+  padding: 2em;
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px var(--shadow-color);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.read-the-docs {
+  color: var(--text-primary);
+}
+
+/* Form styles */
+input, textarea, select {
+  @apply bg-white text-gray-900 border border-gray-300 rounded-md px-3 py-2;
+  transition: all 0.3s ease;
+}
+
+input:focus, textarea:focus, select:focus {
+  @apply outline-none border-blue-500 ring-2 ring-blue-200;
+}
+
+button {
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  border: none;
+  border-radius: 4px;
+  padding: 0.5em 1em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+}
+
+/* Task list styles */
+.task-list {
+  list-style: none;
+  padding: 0;
+}
+
+.task-item {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  padding: 1em;
+  margin-bottom: 1em;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.task-item:hover {
+  background-color: var(--hover-bg);
+}
+
+/* Priority colors */
+.priority-high {
+  color: var(--error-color);
+}
+
+.priority-medium {
+  color: var(--warning-color);
+}
+
+.priority-low {
+  color: var(--success-color);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease forwards;
+}
+
+.app {
+  @apply min-h-screen bg-gradient-to-br from-white to-gray-100 dark:from-gray-900 dark:to-gray-800;
+  transition: background 0.3s ease;
+}
+
+/* Dark Mode Specific Enhancements */
+.dark .task-card {
+  background: rgba(31, 41, 55, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(75, 85, 99, 0.2);
+}
+
+.dark .task-card:hover {
+  background: rgba(31, 41, 55, 0.9);
+}
+
+/* Priority Indicators */
+.priority-high {
+  background: linear-gradient(45deg, #ef4444, #f87171);
+}
+
+.priority-medium {
+  background: linear-gradient(45deg, #f59e0b, #fbbf24);
+}
+
+.priority-low {
+  background: linear-gradient(45deg, #10b981, #34d399);
+}
+
+/* Glass Effect for Cards in Dark Mode */
+.dark .task-card {
+  backdrop-filter: blur(10px);
+  background: rgba(31, 41, 55, 0.7);
+  border: 1px solid rgba(75, 85, 99, 0.2);
+}
+
+/* Glowing Effect for High Priority Tasks in Dark Mode */
+.dark .task-card.border-l-4.border-red-500 {
+  box-shadow: 0 0 15px rgba(239, 68, 68, 0.2);
+}
+
+/* Smooth Transitions */
+* {
+  transition: background-color 0.3s ease,
+              color 0.3s ease,
+              border-color 0.3s ease,
+              box-shadow 0.3s ease;
+}
+
+/* Empty state */
+.empty-state {
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+}
+
+.empty-state:hover {
+  opacity: 0.8;
+}
+
+/* Smooth transitions */
+* {
+  transition: background-color 0.3s ease,
+              color 0.3s ease,
+              border-color 0.3s ease,
+              box-shadow 0.3s ease;
+} 
